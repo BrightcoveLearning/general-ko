@@ -1,0 +1,626 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>Ooyala-비디오 클라우드 수집 어댑터: 원격으로 호스팅되는 MRSS 피드에서 수집</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">기타 브라이트코브 문서</option>
+      
+        
+          <option value="https://support.brightcove.com">설명서 홈</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
+
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">홈</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/ooyala/">Ooyala에서 이주</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Ooyala-비디오 클라우드 수집 어댑터: 원격으로 호스팅되는 MRSS 피드에서 수집</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">홈</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">일반 정보 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/brightcove-product-overview.html">브라이트코브 제품 개요</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-continuum-overview.html">브라이트코브 연속체 개요</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-open-source-projects.html">오픈 소스 프로젝트</a></li>
+                  
+                
+                  
+                    <li><a href="/general/mpeg-dash-video.html">MPEG-대시 비디오</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">브라이트코브 포럼 그룹 및 이메일 목록</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer/index.html">개발자 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/developer/concepts-cors.html">CORS 이해</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-introducing-json.html">JSON 소개</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-debugging-basics.html">자바 스크립트 디버깅 기본 사항</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-module-design-pattern.html">자바 스크립트 모듈 디자인 패턴</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-set-curl.html">cURL 설정하기</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-using-javascript-promises.html">자바 스크립트 약속 사용</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/create-jwt.html">JSON 웹 토큰 만들기 (JWT)</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/debugging-mobile-devices.html">모바일 장치에서 디버깅</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-mtr-to-look-at-network-traffic.html">MTR (내 추적 경로) 사용</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-wireshark-track-network-traffic-debugging.html">Wireshark를 사용하여 네트워크 트래픽 추적</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ooyala/index.html">Ooyala에서 마이그레이션<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/ooyala/migration-docs-ooyala-customers.html">Ooyala 고객을위한 마이그레이션 문서</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html">브라이트코브 분석 API로 마이그레이션</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ad-sets.html">비디오 클라우드로 마이그레이션: 광고 세트</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">비디오 클라우드로 마이그레이션: 수집 어댑터</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">수집 어댑터: CSV 매니페스트 파일</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">수집 어댑터: 아스페라를 이용한 섭취</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">수집 어댑터: FTPS로 인제스팅</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">수집 어댑터: Ois 2.5로 인제스팅</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">수집 어댑터: 백로트 API를 사용한 수집</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">수집 어댑터: MRSS를 통한 원격 자산 수집</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">수집 어댑터: 호스트된 MRSS에서 수집</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">백롯/비디오 클라우드 CMS 커넥터</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">백로트 및 비디오 클라우드: 비디오 및 재생 목록 필드</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">수집 어댑터: 매니페스트 파일 형식</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">수집 어댑터: XML 매니페스트 파일</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">수집 어댑터: 지원되는 인제스트 형식</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">테스트를 위해 브라이트코브 DNS 서버 추가</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">브라이트코브 API 요청에 대한 인증</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/trending-now-report-reference.html">지금 트렌드 보고서 참조</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">비디오 클라우드 콘텐츠에 Ooyala 플레이어 사용</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/utilities/index.html">유틸리티<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/utilities/base-64-encoding-tool.html">기본 64 인코딩 도구</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/date-converter.html">날짜 변환기</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/string-encoder.html">스트링 인코더</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">모든 온라인 교육 과정</a></li>
+                  
+                
+                  
+                    <li><a href="/training/register-training.html">강사 주도식 교육 등록</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud.html">교육: 비디오 클라우드 소개</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud-analytics.html">교육: 비디오 클라우드 분석 소개</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-video-cloud-basics.html">교육: 비디오 클라우드 기본 사항</a></li>
+                  
+                
+                  
+                    <li><a href="/training/video-cloud-studio-training-videos.html">비디오 클라우드 스튜디오 교육 비디오</a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">브라이트코브 대학교 교육 과정</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/known-issues-studio-brightcove-player-and-apis.html">알려진 문제</a></li>
+                  
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">브라이트코브 답변</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">페이지 내용</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+
+<h1>Ooyala-비디오 클라우드 수집 어댑터: 원격으로 호스팅되는 MRSS 피드에서 수집</h1>
+<article class="bcls-article">
+  <summary>Ingestage <a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">어댑터를 통해 MRSS 피드를 사용하여 비디오 및 자산을 비디오 클라우드로 계속 인제스트할</a>수 있습니다.</summary>
+  <aside class="bcls-aside bcls-aside--information language-editable">참고: 이 항목은 비디오 클라우드로 마이그레이션한 Ooyala <strong>고객에게만</strong>적용됩니다.</aside>
+  
+  <section class="bcls-section">
+    <h2 id="introduction">서문</h2>
+    <p>미디어 RSS (MRSS) 를 사용하여 Ooyala가 게시하는 MRSS 피드에서 자신의 시스템에서 콘텐츠를 가져올 수 있습니다. Video Cloud는 MRSS 피드에서 메타데이터를 가져온 다음 원격 에셋 또는 다운로드 (호스팅되는 위치에서) 를 만들고 비디오 및 모든 관련 파일 (축소판, 폐쇄 캡션 파일 등) 을 처리합니다.</p>
+    <div class="note note"><span class="notetitle">참고:</span> 이 항목은 Ois v2.5에 적용됩니다.</div>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Overview_of_MRSS_Ingest">MRSS 인제스트 개요</h2>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="MRSS를 통한 섭취" src="/assets/images/ooyala/ingest_mrss.png"/>
+      <figcaption class="bcls-caption--image">MRSS를 통한 섭취</figcaption>
+    </figure>
+  </section>
+  <section class="bcls-section" id="ingestion_mrss__mrss_about">
+    <h2 id="About_MRSS">MRSS 소개</h2>
+    <p>미디어 RSS (MRSS) 는 RSS 피드에서 멀티미디어 파일을 신디케이트할 수 있는 RSS의 확장입니다. 기술 세부 정보는<a target="_blank" href="http://www.rssboard.org/media-rss">미디어 RSS 사양을</a>참조하십시오.</p>
+  </section>
+  <section class="bcls-section" id="ingestion_mrss__mrss_setup">
+    <h2 id="Setting_Up_MRSS">MRSS 설정</h2>
+    <p>계정 관리자에게 문의하여 MRSS를 사용하려는 것으로 지정합니다. 수집하려는 각 동영상에 대해 Ooyala에 유효한 콘텐츠 URL을 제공해야 합니다. URL에는<samp translate="No">http://</samp>또는 이 포함될 수<samp translate="No">https://</samp>있습니다.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Using_MRSS">MRSS 사용</h2>
+    MRSS를 사용하려면 웹 서버에서 메타데이터 및/또는 비디오 및 기타 파일 (축소판, 폐쇄 자막) 을 호스팅하고 해당 콘텐츠를 참조하는 XML 매니페스트 파일을 만듭니다.
+    <h3>MRSS를 사용하여 메타데이터만 가져오기</h3>
+    <ol class="bcls-tasklist">
+      <li>XML 매니페스트 파일에 설명된 대로<a title="비디오를 인제스트할 때 XML 매니페스트 파일을 사용하여 추가 메타데이터 (비디오 제목, 설명, 비행 시간, 레이블 및 사용자 정의 메타데이터 포함) 뿐만 아니라 축소판 및 폐쇄 자막 파일을 지정할 수 있습니다.FTP, Aspera 또는 MRSS로 콘텐츠를 인제스트할 때 XML 매니페스트 파일을 사용할 수 있습니다." href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">XML 매니페스트 파일을</a>만듭니다. 메타데이터 전용 수집에는<samp translate="No">ooyala:remoteasset</samp>태그를 사용해야 합니다.</li>
+      <li>제공한 MRSS 위치 중 하나에 XML 매니페스트 파일을 호스팅합니다. 파일 이름과 경로가 Ooyala에 제공한 경로 중 하나와 정확히 일치하는지 확인하십시오.</li>
+    </ol>
+    <p><strong>MRSS를 사용하여 비디오, 축소판 및 폐쇄 자막 파일 가져오기</strong></p>
+    <ol class="bcls-tasklist">
+      <li>웹 서버에 하나 이상의 파일 (비디오, 축소판 및 폐쇄 자막 파일) 을 호스팅합니다.</li>
+      <li>XML 매니페스트 파일을 만듭니다 ( <a title="비디오를 인제스트할 때 XML 매니페스트 파일을 사용하여 추가 메타데이터 (비디오 제목, 설명, 비행 시간, 레이블 및 사용자 정의 메타데이터 포함) 뿐만 아니라 축소판 및 폐쇄 자막 파일을 지정할 수 있습니다.FTP, Aspera 또는 MRSS로 콘텐츠를 인제스트할 때 XML 매니페스트 파일을 사용할 수 있습니다." href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">XML 매니페스트 파일</a>참조). 파일의 항목이 서버의 파일을 참조하는지 확인하십시오. 특히<samp translate="No">&lt;media:content&gt;</samp>요소의<samp translate="No">href</samp>속성 값은 다음 예제와 같이 서버의 파일에 대한 HTTP <em class="ph i">URL이어야 합니다</em> .
+        <pre class="pre">
+&lt;media:content url="http://mysite.com/upload/lacrosse_70.mov" /&gt;</pre>
+      </li>
+      <li>제공한 MRSS 위치 중 하나에 XML 매니페스트 파일을 호스팅합니다. 파일 이름과 경로가 Ooyala에 제공 한 경로 중 하나와 정확히 일치하는지 확인하십시오.
+        <p class="note note"><span class="notetitle">참고:</span> 안타깝게도 “클라이언트 로깅” 개념은 MRSS 피드 기반 처리에는 적용되지 않습니다. 피드가 성공적으로 처리되고 있는지 확인하는 가장 좋은 방법은 Video Cloud Studio UI 또는<span translate="No">Backlot API</span><samp translate="No">/v2/assets</samp>요청을 사용하여 에셋의 모양을 확인하는 것입니다.</p>
+      </li>
+    </ol>
+    <p>비디오 및 기타 관련 파일이 처리된 후 더 많은 파일을 가져오려면 동의된 위치에 다른 MRSS 파일을 호스트하기만 하면 됩니다.</p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">페이지 내용</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  20209월28일에 마지막으로 업데이트한 페이지
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>브라이트코브 지원</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">시스템 상태</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">문서화</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>교육</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">궁금한 사항이 있으십니까? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  
+  <!-- <script src="/assets/js/toc.js"></script> -->
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

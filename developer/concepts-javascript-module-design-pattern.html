@@ -1,0 +1,738 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>자바 스크립트 모듈 디자인 패턴</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">기타 브라이트코브 문서</option>
+      
+        
+          <option value="https://support.brightcove.com">설명서 홈</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
+
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">홈</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/developer/">개발자</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">자바 스크립트 모듈 디자인 패턴</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">홈</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">일반 정보 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/brightcove-product-overview.html">브라이트코브 제품 개요</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-continuum-overview.html">브라이트코브 연속체 개요</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-open-source-projects.html">오픈 소스 프로젝트</a></li>
+                  
+                
+                  
+                    <li><a href="/general/mpeg-dash-video.html">MPEG-대시 비디오</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">브라이트코브 포럼 그룹 및 이메일 목록</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer/index.html">개발자 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/developer/concepts-cors.html">CORS 이해</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-introducing-json.html">JSON 소개</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-debugging-basics.html">자바 스크립트 디버깅 기본 사항</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-module-design-pattern.html">자바 스크립트 모듈 디자인 패턴</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-set-curl.html">cURL 설정하기</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-using-javascript-promises.html">자바 스크립트 약속 사용</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/create-jwt.html">JSON 웹 토큰 만들기 (JWT)</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/debugging-mobile-devices.html">모바일 장치에서 디버깅</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-mtr-to-look-at-network-traffic.html">MTR (내 추적 경로) 사용</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/using-wireshark-track-network-traffic-debugging.html">Wireshark를 사용하여 네트워크 트래픽 추적</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ooyala/index.html">Ooyala에서 마이그레이션<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/ooyala/migration-docs-ooyala-customers.html">Ooyala 고객을위한 마이그레이션 문서</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html">브라이트코브 분석 API로 마이그레이션</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ad-sets.html">비디오 클라우드로 마이그레이션: 광고 세트</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">비디오 클라우드로 마이그레이션: 수집 어댑터</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">수집 어댑터: CSV 매니페스트 파일</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">수집 어댑터: 아스페라를 이용한 섭취</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">수집 어댑터: FTPS로 인제스팅</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">수집 어댑터: Ois 2.5로 인제스팅</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">수집 어댑터: 백로트 API를 사용한 수집</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">수집 어댑터: MRSS를 통한 원격 자산 수집</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">수집 어댑터: 호스트된 MRSS에서 수집</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">백롯/비디오 클라우드 CMS 커넥터</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">백로트 및 비디오 클라우드: 비디오 및 재생 목록 필드</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">수집 어댑터: 매니페스트 파일 형식</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">수집 어댑터: XML 매니페스트 파일</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">수집 어댑터: 지원되는 인제스트 형식</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">테스트를 위해 브라이트코브 DNS 서버 추가</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">브라이트코브 API 요청에 대한 인증</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/trending-now-report-reference.html">지금 트렌드 보고서 참조</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">비디오 클라우드 콘텐츠에 Ooyala 플레이어 사용</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/utilities/index.html">유틸리티<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/utilities/base-64-encoding-tool.html">기본 64 인코딩 도구</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/date-converter.html">날짜 변환기</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/string-encoder.html">스트링 인코더</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">모든 온라인 교육 과정</a></li>
+                  
+                
+                  
+                    <li><a href="/training/register-training.html">강사 주도식 교육 등록</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud.html">교육: 비디오 클라우드 소개</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-video-cloud-analytics.html">교육: 비디오 클라우드 분석 소개</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-video-cloud-basics.html">교육: 비디오 클라우드 기본 사항</a></li>
+                  
+                
+                  
+                    <li><a href="/training/video-cloud-studio-training-videos.html">비디오 클라우드 스튜디오 교육 비디오</a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">브라이트코브 대학교 교육 과정</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/known-issues-studio-brightcove-player-and-apis.html">알려진 문제</a></li>
+                  
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">브라이트코브 답변</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">페이지 내용</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+
+<article class="bcls-article">
+  <h1>개념: 자바 스크립트 모듈 디자인 패턴</h1>
+  <summary>이 항목에서는 JavaScript 모듈 디자인 패턴을 사용하여 코드가 웹 페이지의 다른 스크립트와 충돌할 가능성을 줄이는 방법을 배웁니다.</summary>
+  <section class="bcls-section">
+    <h2 id="Scope_conflicts">범위 충돌</h2>
+    <p>JavaScript에서는<code translate="No">var</code>요소를 사용하여 변수를 정의 할 때 정의 된 함수 내에서 범위가 지정됩니다. 를 사용하지 않고 변수를<code translate="No">var</code>정의하면 전역 범위가 할당됩니다. 즉, 전역 변수는 페이지의 다른 스크립트와의 충돌에 취약합니다.</p>
+    <p>의 코드 예제를 살펴 보자. 다음 코드에서는 함수와 변수가 페이지 범위 내에 존재합니다.</p>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">// script 1
+var incrementCount = function() {
+    count++;
+}
+
+var myButton = document.getElementById('buttonId');
+var count = 0;
+
+myButton.onclick = incrementCount;</code></pre>
+    <p>이제 스크립트 외부에 전역<code translate="No">count</code>변수를 수정하는 함수가 있다고 가정 해 보겠습니다. 이러한 스크립트 충돌로 인해 예기치 않은 결과가 발생할 수 있습니다.</p>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">// script 2
+var countVideos = function(videoList) {
+    count = videoList.length;
+}</code></pre>
+    <p>결과:</p>
+    <ol>
+      <li>사용자가<code translate="No">myButton</code>버튼을 두 번 선택하여 에서<code translate="No">count</code>변수를 증가시킵니다<code translate="No">script 1</code> .
+        <ul>
+          <li><code translate="No">count</code> = <strong>2</strong></li>
+        </ul>
+      </li>
+      <li>이<code translate="No">countvideos</code>함수는 에<code translate="No">Script 2</code>존재하지만 웹 페이지에도 존재합니다. 에 10 개의 항목이<code translate="No">videoList</code>포함되어 있다고 가정 해 보겠습니다. 이제<code translate="No">count</code>전역 변수의 값은<strong>10입니다</strong> .
+        <ul>
+          <li><code translate="No">count</code> = <strong>10</strong></li>
+        </ul>
+      </li>
+      <li>다음에 사용자가<code translate="No">myButton</code>버튼을 선택하면<code translate="No">count</code>변수가 예기치 않은 결과를 반환합니다.
+        <ul>
+          <li>예상: <code translate="No">count</code> = <strong>3</strong></li>
+          <li>실제: <code translate="No">count</code> = <strong>11</strong></li>
+        </ul>
+      </li>
+    </ol>
+    <p>스크립트에서 충돌을 피하려고 할 수 있지만 페이지에 포함된 타사 스크립트가 유사한 함수 및 변수 이름을 사용하지 않는다는 보장은 없습니다.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Anonymous_functions">익명 함수</h2>
+    <p>한 가지 해결책은 코드를 익명의 함수 (클로저라고도 함) 로 래핑하여 즉시 실행되는 것입니다. 클로저 내의 코드는 다른 스크립트에서 액세스 할 수 없습니다. 따라서 개인 함수와 변수를 만드는 방법을 제공합니다.</p>
+    <p>여기에 익명 함수의 구문은 다음과 같습니다</p>
+    <ul>
+      <li>3 행: 다른 코드가 함수를 호출 할 때까지 기다리는 대신 파싱 된 후 즉시 함수를 실행하도록 JavaScript에 지시하는 추가 괄호 집합이 포함됩니다.</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">(function () {
+    // your code
+}<span class="bcls-highlight">()</span>);</code></pre>
+    <p>클로저는 응용 프로그램의 수명 기간 동안 개인 정보 보호 및 상태를 제공하므로 강력해질 수 있습니다. 클로저 내부의 코드의 경우 모든 변수와 함수는 클로저 범위에만 있습니다. 그러나 클로저 내부의 코드는 여전히 전역 변수 나 함수에 액세스 할 수 있습니다.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Globals">전역</h2>
+    <p>JavaScript에는 암시적 전역이라는 기능이 있지만 전역 변수를 확인하는 것은 쉽지 않으므로 코드를 관리하기가 어려울 수 있습니다. 변수가 전역 변수인지 확인하려면 인터프리터는 이름과 일치하는<code translate="No">var</code>명령문을 찾는 범위 체인을 거꾸로 걸어야합니다. 아무 것도 발견되지 않으면 변수는 전역 변수로 간주됩니다.</p>
+    <h3>전역 전달</h3>
+    <p>익명 함수를 사용하면 전역 매개 변수를 명시 적으로 전달할 수 있습니다. 이를 코드로 매개 변수 가져 오기라고합니다.</p>
+    <p>다음은 예입니다.</p>
+    <ul>
+      <li>행 1: 함수에 전달되는 매개 변수의 이름을 정의합니다. 3 행의 이름과 일치 할 필요가 없습니다. 여기서, <code translate="No">window</code>객체라는 매개 변수로 전달됩니다<code translate="No">window1</code> .</li>
+      <li>3 행: <code translate="No">window</code>객체를 함수로 전달합니다.</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">(function( window1, undefined ) {
+    ...
+})(window);</code></pre>
+    <p>전달되는 객체는 하나만 있지만 두 개의 매개 변수가 있으므로 의<code translate="No">undefined</code>값은 정의되지 않습니다.</p>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">typeof undefined == "undefined"</code></pre>
+    <p>다른 변수가 정의되어 있는지 쉽게 확인할 수있는 방법을 원한다면 유용 할 수 있습니다.</p>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">if(variable1 === undefined)</code></pre>
+    <h3>전역 내보내기</h3>
+    <p>익명 함수 외부에서 변수와 함수를 전달할 수도 있습니다. <code translate="No">return</code>값을 사용하여이 작업을 수행 할 수 있습니다.</p>
+    <p>다음은 예입니다.</p>
+    <ul>
+      <li>1 행: 익명 함수를 에 할당합니다<code translate="No">BCLS</code> . 이 값은 사용자가 선택하는 모든 것이 될 수 있습니다. 이 예에서는 BCLS (브라이트코브 학습 서비스) 를 사용하고 있습니다.</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">var BCLS = (function( window1, undefined ) {
+    var object1 = {};
+    object1.count = 1;
+    object1.method = function () {
+        ...
+    }
+    <span class="bcls-highlight">return object1;</span>
+})(window);</code></pre>
+    <p>이제<code translate="No">object1</code>객체는 두 개의 공용 속성 (라는<code translate="No">count</code>변수와 라는 함수) 을 사용하여 전역적으로 사용할 수<code translate="No">method</code>있습니다. 익명 함수 외부에서 다음과 같이 액세스 할 수 있습니다.</p>
+    <ul>
+      <li><code translate="No">BCLS.object1.count</code></li>
+      <li><code translate="No">BCLS.object1.method</code></li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Complete_example">전체 예제</h2>
+    <p>다음은 자바 스크립트 모듈 디자인 패턴의 몇 가지 완전한 예입니다.</p>
+    <h3>예제 1</h3>
+    <p>이 예에서는 모듈 패턴을 사용하여 개인 및 공용 변수와 함수를 만드는 방법을 보여 줍니다.</p>
+    <ul>
+      <li>전용 변수: <code translate="No">myvar</code> , <code translate="No">myvar2</code></li>
+      <li>개인 기능: <code translate="No">fname</code> , <code translate="No">fname2</code></li>
+      <li>공용 변수: <code translate="No">myvar3</code></li>
+      <li>공용 기능: <code translate="No">fname3</code></li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">var BCLS = ( function() {
+   var myvar = value,
+       myvar2 = value;
+
+   fname = function() {
+        ...
+   };
+   fname2 = function() {
+        ...
+   };
+
+   return {
+        fname3 : function() {
+             ...
+        },
+        myvar3 = value;
+   };
+}());</code></pre>
+    <h3>예제 2</h3>
+    <p>이 예제는 전역 객체를 전달하고 공용 함수를 노출합니다.</p>
+    <pre class="line-numbers">
+<code class="language-javascript" translate="No">var BCLS = (function( window, document, videojs ) {
+    var myvar = value;
+
+    // use a global object passed into the anonymous function
+    videojs.registerPlugin('overlay');
+
+    fname = function() {
+        ...
+    }
+    return {
+      fname2 : function() {
+            ...
+        }
+    }
+})(window, document, videojs);
+
+// call the public function fname2
+var newvar = BCLS.fname2();</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Code_samples">코드 샘플</h2>
+    <p>코드 예제 중 일부는 JavaScript 모듈 디자인 패턴을 사용하며이 패턴을 구현하는 방법에 대한 아이디어를 검토 할 수 있습니다.</p>
+    <ul>
+      <li><a href="https://player.support.brightcove.com/code-samples/brightcove-player-sample-floating-player.html">플로팅 플레이어</a></li>
+    </ul>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">페이지 내용</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  20209월28일에 마지막으로 업데이트한 페이지
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>브라이트코브 지원</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">시스템 상태</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">문서화</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>교육</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">궁금한 사항이 있으십니까? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  
+  <!-- <script src="/assets/js/toc.js"></script> -->
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

@@ -1,1 +1,1 @@
-# general-ko
+# jekyll-template

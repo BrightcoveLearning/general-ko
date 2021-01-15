@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>데이비드 회의 광고 정보 노트</title>
+</head>
+
+<body>
+  <h1>***데이비드 미팅 광고 정보 노트***</h1>
+  <br/>
+  <h1>기본 어휘</h1>
+  <h3>광고 유형</h3>
+  <ul>
+    <li>선형 광고: 재생 중에 발생하는 광고, 타임라인에서 시간이 걸리는 광고 (예: 프리롤)</li>
+    <li>비선형 광고: 재생을 중단하지 않습니다. 오버레이 및 컴패니언 광고의 예가 있습니다.</li>
+  </ul>
+  <h3>광고 표준</h3>
+  <ul>
+    <li>
+      <p>VMAP: “광고 재생 목록”, 프리롤, 미드롤 및 포스트롤 (VMAP 문서의 URL) 지정, 형식은 XML</p>
+      <ul>
+        <li>DFP는 VMAP 문서 “광고 규칙”을 호출합니다. 광고 규칙을 사용하면 서버의 모든 광고를 구성 할 수 있으며 광고 규칙을 이해하는 모든 클라이언트가 동일하게 작동합니다. 클라이언트의 “나쁜 옛날” 광고 구성; 로직은 게시 시스템으로 옮겨졌습니다.</li>
+      </ul>
+    </li>
+    <li>
+      <p>VAST: 개별 광고 세부 정보; VMAP은 광고에 대한 정보가 포함 된 VAST 문서를 가리 킵니다.</p>
+    </li>
+    <li>Chrome 개발자 도구의 네트워크 탭에서 VAST 예제</li>
+		    <p><img src="vast-response.png"/></p>
+    <li>
+      <p>VPAID: BAST와 마찬가지로 대화식 광고의 표준입니다. 광고에 퀴즈 또는 구피 게임이 포함되어 있습니다 (BC Player 지원 없음).</p>
+    </li>
+  </ul>
+  <h1>IMA 플러그인 정보</h1>
+  <ul>
+    <li>
+      <p>IMA 제약 조건: IMA 라이브러리의 2 버전 (플래시 또는 HTML 버전) 은</p>
+      <ul>
+        <li>플러그인의 기본 설정은 가능한 경우 Flash를 사용합니다 (플래시 광고가 널리 보급되어 있기 때문에)</li>
+        <li>플러그인에 대한 구성 옵션에서 기본값을 HTML ( <strong>AdtechOrder</strong> ) 으로 전환 할 수 있습니다.</li>
+        <li>바탕 화면 기본 플래시, 모바일 기본 HTML</li>
+      </ul>
+    </li>
+    <li>
+      <p>IMA 플러그인의 기본 구현</p>
+      <ul>
+        <li>플러그인에 대한 자바 스크립트 포함</li>
+        <li>플레이어에 IMA 플러그인 추가</li>
+        <li>광고 태그에 서버 URL 제공</li>
+        <li>샘플 구성</li>
+		    <p><img src="plugin-simple-config.png"/></p>
+      </ul>
+    </li>
+    <li>
+      <p>동적 광고 타겟팅: 고객 정보를 수집한 후 IMA 플러그인 구성 (예: 시청자 연령, 광고 규칙 선택)</p>
+      <ul>
+        <li>플러그인에 대한 자바 스크립트 포함</li>
+        <li>IMA 플러그인을 호출하고 해당 시점에서 옵션을 전달하십시오.
+          <ul>
+            <li>마이 레이어. IMA3 ({서버 URL:...})</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>컴패니언 광고: IMA 플러그인은 선형 광고 및 오버레이를 원활하게 처리합니다. 플레이어와 나머지 페이지 간의 통신이 이루어져야하기 때문에 동반자 광고는 까다로울 수 있습니다.</li>
+    <ul>
+    	<li>Google 게시자 태그 (GPT) 라이브러리를 사용하면 컴패니언 광고 블록이 자동으로 채워집니다</li>
+    	<li>IMA 사이트에서 사용할 수있는 좋은 자습서</li>
+    	<li>iframe이 상위 페이지와 상호 작용할 수 없으므로 컴패니언 광고에 페이지 내장 구현 사용</li>
+    	<li>예: 동반자 광고를위한 JS 및 HTML</li>
+		    <p><img src="companion-ad-script.png"/></p>
+		    <p><img src="companion-ad-html.png"/></p>
+    </ul>
+  </ul>
+  <h1>리소스</h1>
+  <ul>
+    <li>일반 이마 정보: <a href="https://developers.google.com/interactive-media-ads/">https://developers.google.com/interactive-media-ads/</a>
+    </li>
+    <li>문제 해결: 비디오 스위트 관리자 (https://developers.google.com/interactive-media-ads/docs/vastinspector_dual) 는 비디오 태그/서버가 작동하는지 테스트합니다.
+    	<ul><li>BC Player와 함께 사용하기 전에 URL이 작동하는지 테스트하고 호환되는 광고 서버를 확인하십시오. 여기서 작동하지 않으면 BC Player에서 작동하지 않습니다.</li></ul>
+    </li>
+  </ul>
+  <h1>브라이트코브 플레이어의 “광고 API”</h1>
+  <ul>
+  	<li>https://github.com/videojs/videojs-contrib-ads: 자체 광고 구현을 작성하는 파트너에게 흥미롭습니다.</li>
+    <li>사이트 “videojs-contrib-ads 플러그인은 video.js 작업 비디오 광고 라이브러리에 필요한 공통 기능을 제공합니다. 그것은 당신이 당신의 광고 통합을 위해 작성해야하는 코드를 줄이기 위해 당신을 위해 많은 관심사를 처리합니다.“</li>
+    <li>사용 사례: 광고와 스타일이 다른 범퍼를 표시하는 방법</li>
+  </ul>
+</body>
+
+</html>
