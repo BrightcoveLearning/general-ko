@@ -1,0 +1,137 @@
+- section:
+  name: '집'
+  url: '/index.html'
+- section:
+  name: '일반 정보'
+  url: '/general/index.html'
+  icon: '<i data-feather="info"></i>'
+  docs:
+    - name: '브라이트코브 제품 개요'
+      url: '/general/brightcove-product-overview.html'
+    - name: '브라이트코브 연속체 개요'
+      url: '/general/brightcove-continuum-overview.html'
+    - name: 'Roku Trick Play의 Brightcove 비디오'
+      url: '/general/roku-trick-play.html'
+    - name: '오픈 소스 프로젝트'
+      url: '/general/brightcove-open-source-projects.html'
+    - name: 'MPEG-DASH 비디오'
+      url: '/general/mpeg-dash-video.html'
+    - name: 'Brightcove 포럼 그룹 및 이메일 목록'
+      url: '/general/brightcove-forum-groups-and-email-lists.html'
+- section:
+  name: '개발자'
+  url: '/developer/index.html'
+  icon: '<i data-feather="code"></i>'
+  docs:
+    - name: 'CORS 이해하기'
+      url: '/developer/concepts-cors.html'
+    - name: 'JSON 소개'
+      url: '/developer/concepts-introducing-json.html'
+    - name: 'JavaScript 디버깅 기본 사항'
+      url: '/developer/concepts-javascript-debugging-basics.html'
+    - name: 'JavaScript 모듈 디자인 패턴'
+      url: '/developer/concepts-javascript-module-design-pattern.html'
+    - name: 'cURL 설정'
+      url: '/developer/concepts-set-curl.html'
+    - name: 'JavaScript 약속 사용'
+      url: '/developer/concepts-using-javascript-promises.html'
+    - name: 'JSON 웹 토큰 (JWT) 생성'
+      url: '/developer/create-json-web-token.html'
+    - name: 'JSON 웹 토큰(JWT) 생성 - 더 이상 사용되지 않음'
+      url: '/developer/create-jwt.html'
+    - name: '모바일 장치에서 디버깅'
+      url: '/developer/debugging-mobile-devices.html'
+    - name: 'MTR(내 추적 경로) 사용'
+      url: '/developer/using-mtr-to-look-at-network-traffic.html'
+    - name: 'Wireshark를 사용하여 네트워크 트래픽 추적'
+      url: '/developer/using-wireshark-track-network-traffic-debugging.html'
+- section:
+  name: 'Ooyala에서 마이그레이션'
+  url: '/ooyala/index.html'
+  icon: '<i data-feather="truck"></i>'
+  docs:
+    - name: 'Ooyala 고객을 위한 마이그레이션 문서'
+      url: '/ooyala/migration-docs-ooyala-customers.html'
+    - name: 'Brightcove Analytics API로 마이그레이션'
+      url: '/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html'
+    - name: '비디오 클라우드로 마이그레이션: 광고 세트'
+      url: '/ooyala/migrating-video-cloud-ad-sets.html'
+    - name: '비디오 클라우드로 마이그레이션: 수집 어댑터'
+      url: '/ooyala/migrating-video-cloud-ingestion-adapter.html'
+    - name: '처리 어댑터: CSV 매니페스트 파일'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html'
+    - name: '처리 어댑터: 아스페라와 함께 섭취'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html'
+    - name: '처리 어댑터: FTPS를 사용한 인제스트'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html'
+    - name: '처리 어댑터: OIS 2.5로 수집'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html'
+    - name: '처리 어댑터: 백롯 API를 사용한 수집'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html'
+    - name: '처리 어댑터: MRSS를 통해 원격 자산 수집'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html'
+    - name: '처리 어댑터: 호스팅된 MRSS에서 수집'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html'
+    - name: 'Backlot / 비디오 클라우드 CMS 커넥터'
+      url: '/ooyala/backlot-video-cloud-cms-connector.html'
+    - name: '백롯 및 비디오 클라우드: 비디오 및 재생 목록 필드'
+      url: '/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html'
+    - name: '처리 어댑터: 매니페스트 파일 형식'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html'
+    - name: '처리 어댑터: XML 매니페스트 파일'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html'
+    - name: '처리 어댑터: 지원되는 인제스트 형식'
+      url: '/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html'
+    - name: '테스트를 위해 Brightcove DNS 서버 추가'
+      url: '/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html'
+    - name: 'Brightcove API 요청에 대한 인증'
+      url: '/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html'
+    - name: '인기 급상승 보고서 참조'
+      url: '/ooyala/trending-now-report-reference.html'
+    - name: '비디오 클라우드 콘텐츠에 Ooyala 플레이어 사용'
+      url: '/ooyala/using-ooyala-players-deliver-video-cloud-content.html'
+- section:
+  name: '유용'
+  url: '/utilities/index.html'
+  icon: '<i data-feather="tool"></i>'
+  docs:
+    - name: 'Base 64 인코딩 도구'
+      url: '/utilities/base-64-encoding-tool.html'
+    - name: '날짜 변환기'
+      url: '/utilities/date-converter.html'
+    - name: '문자열 인코더'
+      url: '/utilities/string-encoder.html'
+- section:
+  name: 훈련
+  url: /training/index.html
+  icon: '<i data-feather="award"></i>'
+  docs:
+    - name: 모든 온라인 교육 과정
+      url: /training/online-training-courses.html
+    - name: 강사 주도 교육 등록
+      url: /training/register-training.html
+    - name: '훈련: Video Cloud 소개'
+      url: /training/training-demand-introduction-video-cloud.html
+    - name: '훈련: 비디오 클라우드 분석 소개'
+      url: /training/training-demand-introduction-video-cloud-analytics.html
+    - name: '훈련: 비디오 클라우드 기초'
+      url: /training/training-demand-video-cloud-basics.html
+    - name: Video Cloud Studio 교육 비디오
+      url: /training/video-cloud-studio-training-videos.html
+    - name: Brightcove University 교육 과정
+      url: /training/brightcove-university.html
+- section:
+  name: '지원하다'
+  url: '/support/index.html'
+  icon: '<i data-feather="help-circle"></i>'
+  docs:
+    - name: '알려진 문제'
+      url: '/support/known-issues-studio-brightcove-player-and-apis.html'
+    - name: 'Brightcove 시스템 상태 페이지보기'
+      url: '/support/viewing-brightcove-system-status-page.html'
+    - name: '영업팀에 문의'
+      url: '/support/contact-sales.html'
+    - name: '지원 사례 열기'
+      url: '/support/opening-case-with-brightcove-support.html'
+    - name: '지원 포털 비밀번호 재설정'
+      url: '/support/reset-support-portal-password.html'

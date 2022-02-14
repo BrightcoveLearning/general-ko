@@ -1,0 +1,19 @@
+
+---
+title: 'Roku Trick Play '
+description: 'Roku의 브라이트코브 비디오에는 이미지가 첨부되려면 15분 이상의 VOD 콘텐츠가 필요합니다. 이 항목에서는 Video Cloud 비디오용 이미지를 생성하는 방법에 대해 알아봅니다.'
+parent: General Information
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="what_you_need_to_do">해야 할 일</h2>
+    <p>Roku 디바이스에 대한 트릭 플레이 지원의 경우 브라이트코브는<a href="https://developer.roku.com/en-gb/docs/developer-program/media-playback/trick-mode/hls-and-dash.md"> Roku 설명서에서 지정한 대로 대시 표준 썸네일 타일을 생성할 수</a>있습니다. 계정에서이 기능을 활성화하려면 계정 관리자에게 문의하십시오.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="how_it_works">작동 원리</h2>
+    <p>활성화되면 Brightcove의 Dynamic Delivery 시스템은 Brightcove 측에서 추가 구성이 필요하지 않고 DASH 매니페스트에 이러한 이미지를 자동으로 포함합니다. 트릭 플레이 이미지는 검색 할 때 Roku의 기본 컨트롤에 의해로드되고 표시됩니다. <a href="https://github.com/rokudev/trickplay-samples/tree/master/standard-HLS-DASH">사용자 지정 컨트롤에는 추가 개발 작업이 필요합니다</a> .</p>
+    <p>채널<a href="https://developer.roku.com/en-gb/docs/developer-program/certification/certification.md">인증 요구 사항</a>및 구현 세부 사항에 대한 자세한 내용은 Roku의 개발자 설명서를 참조하십시오.</p>
+  </section>
+</article>

@@ -1,437 +1,41 @@
-﻿<!doctype html>
-<html lang="ko">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  
-  <title>MPEG-대시 비디오</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
-
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">홈</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/general/">일반 정보</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">MPEG-대시 비디오</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-      <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">기타 브라이트코브 문서</option>
-					
-						
-							<option value="https://support.brightcove.com">설명서 홈</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">홈</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">일반 정보 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/brightcove-product-overview.html">브라이트코브 제품 개요</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-continuum-overview.html">브라이트코브 연속체 개요</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-open-source-projects.html">오픈 소스 프로젝트</a></li>
-                  
-                
-                  
-                    <li><a href="/general/mpeg-dash-video.html">MPEG-대시 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">브라이트코브 포럼 그룹 및 이메일 목록</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/developer/index.html">개발자 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/developer/concepts-cors.html">CORS 이해</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-introducing-json.html">JSON 소개</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-javascript-debugging-basics.html">자바 스크립트 디버깅 기본 사항</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-javascript-module-design-pattern.html">자바 스크립트 모듈 디자인 패턴</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-set-curl.html">cURL 설정하기</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-using-javascript-promises.html">자바 스크립트 약속 사용</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/create-jwt.html">JSON 웹 토큰 만들기 (JWT)</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/debugging-mobile-devices.html">모바일 장치에서 디버깅</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/using-mtr-to-look-at-network-traffic.html">MTR (내 추적 경로) 사용</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/using-wireshark-track-network-traffic-debugging.html">Wireshark를 사용하여 네트워크 트래픽 추적</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ooyala/index.html">Ooyala에서 마이그레이션<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/ooyala/migration-docs-ooyala-customers.html">Ooyala 고객을위한 마이그레이션 문서</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html">브라이트코브 분석 API로 마이그레이션</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/migrating-video-cloud-ad-sets.html">비디오 클라우드로 마이그레이션: 광고 세트</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/migrating-video-cloud-ingestion-adapter.html">비디오 클라우드로 마이그레이션: 수집 어댑터</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">수집 어댑터: CSV 매니페스트 파일</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">수집 어댑터: 아스페라를 이용한 섭취</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">수집 어댑터: FTPS로 인제스팅</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">수집 어댑터: Ois 2.5로 인제스팅</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">수집 어댑터: 백로트 API를 사용한 수집</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">수집 어댑터: MRSS를 통한 원격 자산 수집</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">수집 어댑터: 호스트된 MRSS에서 수집</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">백롯/비디오 클라우드 CMS 커넥터</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">백로트 및 비디오 클라우드: 비디오 및 재생 목록 필드</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">수집 어댑터: 매니페스트 파일 형식</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">수집 어댑터: XML 매니페스트 파일</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">수집 어댑터: 지원되는 인제스트 형식</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">테스트를 위해 브라이트코브 DNS 서버 추가</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">브라이트코브 API 요청에 대한 인증</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/trending-now-report-reference.html">지금 트렌드 보고서 참조</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html">비디오 클라우드 콘텐츠에 Ooyala 플레이어 사용</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/utilities/index.html">유틸리티<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/utilities/base-64-encoding-tool.html">기본 64 인코딩 도구</a></li>
-                  
-                
-                  
-                    <li><a href="/utilities/date-converter.html">날짜 변환기</a></li>
-                  
-                
-                  
-                    <li><a href="/utilities/string-encoder.html">스트링 인코더</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/training/online-training-courses.html">모든 온라인 교육 과정</a></li>
-                  
-                
-                  
-                    <li><a href="/training/register-training.html">강사 주도식 교육 등록</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-introduction-video-cloud.html">교육: 비디오 클라우드 소개</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-introduction-video-cloud-analytics.html">교육: 비디오 클라우드 분석 소개</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-video-cloud-basics.html">교육: 비디오 클라우드 기본 사항</a></li>
-                  
-                
-                  
-                    <li><a href="/training/video-cloud-studio-training-videos.html">비디오 클라우드 스튜디오 교육 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/training/brightcove-university.html">브라이트코브 대학교 교육 과정</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/support/known-issues-studio-brightcove-player-and-apis.html">알려진 문제</a></li>
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">페이지 내용</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-
+---
+title: MPEG-대시 비디오
+parent: General Information
+---
 <article class="bcls-article">
-  <h1>MPEG-대시 비디오</h1>
-  <summary>이 항목에서는 비디오의 MPEG-DASH 변환을 만드는 방법에 대해 설명합니다.</summary>
+  <h1>MPEG-DASH 비디오</h1>
+  <summary>이 항목에서는 비디오 용 MPEG-DASH 변환을 만드는 방법에 대해 알아 봅니다.</summary>
   <section class="bcls-section">
     <h2 id="Overview">개요</h2>
-    <p>MPEG-DASH는 세그먼트화된 비디오 형식입니다. DASH는 Playready, Marlin 또는 Widevine 모듈러 DRM과 함께 사용할 수 있으므로 콘텐츠에 DRM 보안이 필요한 경우 특히 유용합니다. MPEG-DASH 변환을 지정하는 구문은 다른 비디오 형식의 구문과 약간 다르므로 여기에는 DRM 패키징이 없는 샘플 프로파일과 DRM 패키징을 포함한 샘플 프로파일이 포함되어 있습니다.</p>
-    <p>브라이트코브 플레이어가 실제로 재생할 렌디션을<a href="https://player.support.brightcove.com/playback/determining-which-rendition-will-play.html#HLS_DASH_Rendition_Selection">결정하는 방법에 대한 자세한 내용은 재생할 변환</a>결정 문서를 참조하십시오.</p>
+    <p>MPEG-DASH는 분할 된 비디오 형식입니다. DASH는 Playready, Marlin 또는 Widevine Modular DRM과 함께 사용할 수 있기 때문에 콘텐츠에 DRM 보안이 필요한 경우 특히 유용합니다. MPEG-DASH 변환을 지정하는 구문이 다른 비디오 형식의 구문과 약간 다르기 때문에 여기에 몇 가지 샘플 프로필이 포함됩니다. 하나는 DRM 패키징이없고 다른 하나는 DRM 패키징이 포함됩니다.</p>
+    <p>브라이트코브 플레이어에서 실제로 재생할 변환을<a href="https://player.support.brightcove.com/playback/determining-which-rendition-will-play.html#HLS_DASH_Rendition_Selection">결정하는 방법에 대한 자세한 내용은 재생될 변환 결정</a>문서를 참조하십시오.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="nodrm">샘플 프로파일 (DRM 없음)</h2>
-    <p>이 샘플은 DRM 패키징이 없는 MPEG-DASH 변환의 패키징을 보여 줍니다.</p>
-    <aside class="bcls-aside bcls-aside--information">DASH 변환의 경우<code translate="No">decoder_bitrate_cap</code><code translate="No">decoder_buffer_size</code>대상 시청 환경에서 재생을 최적화합니다.
-      <p>일반적인 권장 사항은 비디오<code translate="No">decoder_bitrate_cap</code>스트림에 사용할 수 있는 최대 비트 전송률로 설정하는 것입니다. 파일 형식에 대한 오버 헤드뿐만 아니라 오디오를 고려해야합니다. <code translate="No">decoder_buffer_size</code>는 기술적으로 디코딩 장치에서 사용 가능한 비디오 버퍼 메모리와 일치하도록 되어 있지만 미리 버퍼링되는 콘텐츠의 양을 제어하는 데 더 잘 사용되는 경우가 많습니다. 그것은 배수로 작동합니다<code translate="No">decoder_bitrate_cap</code> , 예를 들어<code translate="No">decoder_bitrate_cap</code> 500kbps이고<code translate="No">decoder_buffer_size</code> 1000kbps이면 버퍼에 2 초 분량의 비디오를 저장할 수 있습니다. 또한 인코더가 복잡한 씬을<code translate="No">video_bitrate</code>인코딩하기 위해 더 많은 데이터를 사용하고 단순한 씬에서는 더 적은 데이터를 인코딩할 수 있도록 하는 보다 약간 낮게 설정하는 것이 좋습니다. <code translate="No">decoder_bitrate_cap</code> 적절한 출발점은 파일 형식에 대한 오버헤드의 최대 10% 를 가정하고, 보다<code translate="No">video_bitrate</code> 10% 낮게 설정하고<code translate="No">decoder_bitrate_cap</code> , 약 1.5 초의 비디오를 버퍼링하는 것입니다.</p>
-      <p>뷰어에서 1000Kbps 연결을 사용할 수 있다고 가정합니다.</p>
+    <h2 id="nodrm">샘플 프로필 (DRM 없음)</h2>
+    <p>이 샘플은 DRM 패키징이없는 MPEG-DASH 변환 패키징을 보여줍니다.</p>
+    <aside class="bcls-aside bcls-aside--information">DASH 변환의 경우 대상 보기 환경에서 재생을<code translate="No">decoder_bitrate_cap</code><code translate="No">decoder_buffer_size</code>최적화하도록 를 설정합니다.
+      <p>일반적인 권장 사항은 비디오<code translate="No">decoder_bitrate_cap</code>스트림에 사용할 수 있는 최대 비트 전송률로 설정하는 것입니다. 파일 형식에 대한 오버 헤드뿐만 아니라 오디오도 고려해야합니다. <code translate="No">decoder_buffer_size</code>는 기술적으로 디코딩 디바이스에서 사용 가능한 비디오 버퍼 메모리와 일치하도록 되어 있지만, 미리 버퍼링되는 콘텐츠의 양을 제어하는 데 더 자주 사용됩니다. 예를 들어 500kbps <code translate="No">decoder_bitrate_cap</code>인 경우 여러 개의 배수로 작동합니다. <code translate="No">decoder_bitrate_cap</code><code translate="No">decoder_buffer_size</code> 1000kbps였고 버퍼는 2 초 분량의 비디오를 저장할 수 있습니다. 또한 인코더가 더 많은 데이터를 사용하여 복잡한 장면을 인코딩하고 더 적은 데이터를 인코딩할 수 있도록 하는 보다 약간 낮게 설정하는 것이 좋습니다. <code translate="No">video_bitrate</code><code translate="No">decoder_bitrate_cap</code>더 간단한 장면. 적절한 시작점은 파일 형식에 대해 최대 10% 의 오버 헤드를 가정하고<code translate="No">video_bitrate</code> 10% 를 보다 낮게 설정하고 약 1을 허용하는 것입니다. <code translate="No">decoder_bitrate_cap</code> 5초 동안 버퍼링할 비디오입니다.</p>
+      <p>뷰어가 1000Kbps 연결을 사용할 수 있다고 가정합니다.</p>
       <ul>
-        <li>형식 오버헤드에 대해 10% 를 뺀 후 사용할 수 있는 1000* 0.90 = 900Kbps입니다.</li>
-        <li>오디오에 대해 128Kbps를 뺀 후 900- 128 = 772Kbps 비디오 디코더 캡입니다.</li>
-        <li>772 * 1.5 = 1158 KB 디코더 버퍼 크기 (비디오의 1.5 초 가치).</li>
-        <li>772 * 0.90 = 695Kbps의 대상 비디오 비트레이트 (디코더 비트레이트 캡보다 10% 낮음)</li>
+        <li>1000 * 0.90 = 형식 오버 헤드를 위해 10 %를 뺀 후 900Kbps 사용 가능.</li>
+        <li>900-128 = 오디오에 대해 128Kbps를 뺀 후 772Kbps 비디오 decoder_bitrate_cap.</li>
+        <li>772 * 1.5 = 1158Kb decoder_buffer_size (1.5 초 분량의 비디오).</li>
+        <li>772 * 0.90 = 695Kbps 대상 비디오 비트 전송률 (decoder_bitrate_cap보다 10 % 낮음).</li>
       </ul>
-    </aside>
-    <aside class="bcls-aside bcls-aside--warning">
+    </aside> <aside class="bcls-aside bcls-aside--warning">
       <ol>
-        <li>브라이트코브 플레이어는 현재 특수 플러그인으로만 DASH 재생을 지원합니다.</li>
-        <li><code translate="No">force_aac_profile</code>속성은 각 DASH 변환에 있어야 합니다.
+        <li>Brightcove 플레이어는 현재 특수 플러그인으로 만 DASH 재생을 지원합니다.</li>
+        <li>이<code translate="No">force_aac_profile</code>속성은 각 DASH 변환에 있어야 합니다.
           <ul>
-            <li><code translate="No">force_aac_profile</code>는 다음 세 가지 값 중 하나여야 합니다.
+            <li><code translate="No">force_aac_profile</code>다음 세 가지 값 중 하나여야 합니다.
               <ul>
                 <li><code translate="No">aac-lc</code></li>
                 <li><code translate="No">he-aac</code></li>
                 <li><code translate="No">he-aac-v2</code></li>
               </ul>
             </li>
-            <li>프로파일의 모든 변환에 대한 값은<code translate="No">force_aac_profile</code>동일해야 합니다.</li>
+            <li>의 값은 프로파일의 모든 변환에 대해<code translate="No">force_aac_profile</code>동일해야 합니다.</li>
           </ul>
         </li>
       </ol>
@@ -519,8 +123,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 }</code></pre>
   </section>
   <section class="bcls-section">
-    <h2 id="drm">샘플 프로파일 (DRM 포함)</h2>
-    <p>다음은 공통 암호화 (CENC) 및 DRM 패키지 (와이드바인 및 Playready) 가 포함된 것과 동일한 샘플 프로필입니다.</p>
+    <h2 id="drm">샘플 프로필 (DRM 포함)</h2>
+    <p>다음은 공통 암호화 (CENC) 및 DRM 패키징 (Widevine 및 Playready)이 포함 된 동일한 샘플 프로필입니다.</p>
     <pre class="line-numbers">
 <code class="language-json" translate="No">{
     "account_id": 2728142649001,
@@ -731,177 +335,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 }</code></pre>
   </section>
   <section class="bcls-section">
-    <h2 id="silverlight">실버라이트 보안</h2>
-    <p>특정 플랫폼에서 브라이트코브 플레이어는 실버라이트 폴백을 사용하여 MPEG-DASH 변환을 재생합니다. 보안상의 이유로 Silverlight는 DASH 콘텐츠가 제공되는 서버의 문서 루트에<strong>clientaccesspolicy.xml</strong>파일이 있어야 합니다. 자세한 내용은<a href="https://msdn.microsoft.com/en-us/library/cc645032(VS.95).aspx">이 Microsoft 문서를</a>참조하십시오.</p>
-    <p>다음은 샘플<strong>clientaccesspolicy.xml</strong>파일입니다.</p>
+    <h2 id="silverlight">Silverlight 보안</h2>
+    <p>특정 플랫폼에서 Brightcove Player는 Silverlight 폴백을 사용하여 MPEG-DASH 변환을 재생합니다. 보안상의 이유로 Silverlight에서는 DASH 콘텐츠가 제공되는 서버의 문서 루트에<strong> clientaccesspolicy.xml</strong>파일이 있어야 합니다. 자세한 내용은<a href="https://msdn.microsoft.com/en-us/library/cc645032(VS.95).aspx">이 Microsoft 문서를</a>참조하십시오.</p>
+    <p>다음은 샘플<strong> clientaccesspolicy.xml</strong>파일입니다.</p>
     <p><script src="https://gist.github.com/fde89cf617c9ec86f7b5.js"></script></p>
   </section>
   <section class="bcls-section">
     <h2 id="Known_issues">알려진 문제</h2>
     <ul>
-      <li>그만큼<strong>기본값 (자동 표시)</strong>캡션 설정&nbsp;<strong>미디어</strong>모듈<strong>텍스트 트랙</strong>섹션은 DASH 및 매니페스트 캡션과 함께 사용하는 경우 지원되지 않습니다. 매니페스트 내 캡션은 브라이트코브 제품 동적 전송 및 SSAI와 함께 사용됩니다. 이 문제의 해결 방법은 고급 브라이트코브 플레이어 구현과 함께<code translate="No">&lt;track&gt;</code>태그를 사용하는 것입니다. <a href="https://player.support.brightcove.com/general/adding-captions-videos-programmatically.html">프로그래밍 방식으로 비디오에 캡션 추가</a>문서에 자세히 설명되어 있습니다. 참고로<code translate="No">default</code>속성<code translate="No">&lt;track&gt;</code>꼬리표.</li>
+      <li>NS <strong>기본값(자동 표시)</strong>캡션 설정&nbsp;<strong>미디어</strong>모듈의<strong>텍스트 트랙</strong>섹션은 DASH 및 매니페스트 내 캡션과 함께 사용되는 경우 지원되지 않습니다. 예를 들어, 매니페스트 캡션은 Brightcove 제품 Dynamic Delivery 및 SSAI와 함께 사용됩니다. 이 문제에 대한 해결 방법은 고급 브라이트코브 플레이어 구현에<code translate="No">&lt;track&gt;</code>태그를 사용하는 것입니다. 이 내용은 프로그래밍 방식으로 비디오에 캡션<a href="https://player.support.brightcove.com/general/adding-captions-videos-programmatically.html">추가</a>문서에서 자세히 설명합니다. 참고로 사용하셔야 합니다<code translate="No">default</code>속성<code translate="No">&lt;track&gt;</code>꼬리표.</li>
     </ul>
   </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">페이지 내용</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>브라이트코브 지원</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">시스템 상태</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">문서화</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>교육</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-<div id="talla_wrapper">
-  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">궁금한 사항이 있으십니까? </button> </p>
-  <div id="talla_chat">
-</div>
-</div>
-<script>
-
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  
-  <!-- <script src="/assets/js/toc.js"></script> -->
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>
