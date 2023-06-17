@@ -1,0 +1,1916 @@
+﻿<!DOCTYPE html>
+<html lang="ko"> 
+    <head>
+        <title>단계별: 포털 환경 만들기 및 게시</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="이 주제의 목적은 브라이트코브 갤러리를 사용하여 매력적인 포털 경험을 만드는 방법을 보여주기 위한 것입니다.">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
+
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="로고" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
+          
+          
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+          
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
+    </div>
+  </div>
+</header><!--//header-->
+
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">홈</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/get-started/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;시작하기</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/step-step-creating-and-publishing-portal-experience.html" aria-current="page">포털 환경 만들기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/step-step-creating-and-publishing-page-experience.html">페이지 내 환경 만들기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/creating-and-managing-gallery-experiences.html">경험 생성 및 관리</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/getting-started-brightcove-gallery.html">브라이트코브 갤러리 시작하기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/overview-gallery-experiences.html">갤러리 경험 개요</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/training/index.html">교육</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/experiences/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;경험담</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/portal/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;포털</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/getting-started/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;시작하기</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/getting-started/overview-creating-editing-and-publishing-portal-experiences.html">생성, 편집 및 게시</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-introduction-gallery.html">교육 - 갤러리 소개</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-building-portal-experiences-using-gallery.html">교육 - 포털 경험 구축</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="/get-started/step-step-creating-and-publishing-portal-experience.html" aria-current="page">단계별: 작성 및 게시</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/templates/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;템플리트</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/overview-gallery-portal-templates.html">포털 템플릿 개요</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/updating-gallery-templates.html">갤러리 템플릿 업데이트</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/working-with-immersion-template.html">몰입 포털 템플릿 작업</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-catalogue-template-settings.html">카탈로그 템플릿 설정 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-chronicle-template-settings.html">크로니클 템플릿 설정 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-immersion-template-settings.html">침지 템플릿 설정 사용자 지정</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-marquee-template-settings.html">선택 윤곽 템플릿 설정 사용자 정의</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/videos/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;동영상 추가</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/adding-videos-portal-experience.html">비디오 추가</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/adding-video-cloud-videos-portal-experience.html">비디오 클라우드 비디오 추가</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/adding-youtube-videos-portal-experience.html">유튜브 동영상 추가</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/downloading-videos-portal-experience.html">비디오 다운로드</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/customizing/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;커스터마이징</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-site-editor-customize-portal-experience.html">사이트 편집기 사용</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-appearance-and-behavior-portal-experience.html">모양 및 동작 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-content-portal-experience-pages.html">페이지 내용 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-player-and-lead-form-settings-portal-experience.html">플레이어 및 리드 양식 설정 사용자 지정</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-configuration-portal-experience.html">사이트 구성 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-features-portal-experience.html">사이트 기능 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-social-settings-portal-experience.html">소셜 설정 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-style-portal-experience.html">스타일 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-video-and-playback-settings-portal-experience.html">비디오 및 재생 설정 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-video-settings-portal-experience.html">비디오 설정 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-custom-fonts-portal-experience.html">사용자 정의 글꼴 사용</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/changing-player-layout-portal-experience.html">플레이어 레이아웃 변경하기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/configuring-details-portal-experience.html">세부 정보 구성</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-multi-lingual-metadata.html">다국어 메타데이터 사용</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/other/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;기타 기능</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-calls-action-portal-experience.html">영업 활용 방안 구성</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/indexing-gallery-portal-experience.html">포털 환경 인덱싱</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/using-lead-form-portal-experience.html">가망 고객 화면 사용</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/exporting-gallery-lead-data.html">갤러리 잠재 고객 데이터 익스포트</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-search-engine-optimization-settings-portal-experience.html">SEO 설정 구성</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-third-party-tracking-portal-experience.html">타사 추적 구성</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/publishing/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;퍼블리싱</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">미리 보기 및 게시</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/controlling-access-portal-experience.html">액세스 제어</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/inpage/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;인페이지</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/getting-started/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;시작하기</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/getting-started/overview-creating-editing-and-publishing-page-experiences.html">개요: 페이지 내 경험 만들기 및 게시</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-introduction-gallery.html">교육 - 갤러리 소개</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-building-page-experiences-using-gallery.html">교육 - 페이지 내 경험 구축</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/step-step-creating-and-publishing-page-experience.html">단계별: 페이지 내 환경 만들기 및 게시</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/templates/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;템플리트</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/templates/overview-gallery-page-experience-templates.html">템플릿 개요</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/updating-gallery-templates.html">갤러리 템플릿 업데이트</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/customizing/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;커스터마이징</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/customizing-page-experience.html">경험 커스터마이징</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/adding-components-page-experience.html">구성 요소 추가</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/adding-videos-page-experience.html">비디오 추가</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/customizing-style-page-experience.html">스타일 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/adding-interactions-page-experience.html">상호 작용 추가</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/configuring-companion-components-page-experience.html">컴패니언 컴포넌트 구성</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/configuring-details-page-experience.html">세부 정보 구성</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/configuring-settings-page-experience.html">설정 구성</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/other/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;기타 기능</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/other/using-dynamic-video-overrides-page-experience.html">동적 비디오 재정의 사용</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/other/configuring-video-downloads-page-experience.html">비디오 다운로드 구성</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/other/creating-custom-themes-page-experiences.html">사용자 정의 테마 만들기</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/publishing/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;퍼블리싱</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/publishing/previewing-and-publishing-page-experience.html">미리 보기 및 게시</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/updating-gallery-templates.html">갤러리 템플릿 업데이트</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/analytics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;해석학</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-analytics.html">분석 검토</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-analytics-dashboard.html">분석 대시보드 검토</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-video-analytics.html">비디오 분석 검토</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-calls-action-analytics.html">영업 활용 방안 분석 검토</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/live/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;라이브 이벤트</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/live/portal/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;포털</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-live-event-portal-experience.html">라이브 이벤트 포털 만들기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-pre-event-state-portal-event-experience.html">사전 이벤트 상태 만들기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-live-event-state-portal-event-experience.html">라이브 이벤트 상태 만들기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-post-event-state-portal-event-experience.html">사후 이벤트 상태 만들기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/customizing-live-event-portal-settings.html">설정 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">미리 보기 및 게시</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/controlling-access-portal-experience.html">액세스 제어</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/adding-pigeonhole-live-event-portal-experience.html">라이브 포털에 비둘기 추가</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/live/in-page/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;인페이지</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/in-page/creating-live-event-page-experience.html">라이브 이벤트 인 페이지 만들기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/in-page/adding-pigeonhole-live-event-page-experience.html">비둘기집 추가</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/publishing/previewing-and-publishing-page-experience.html">미리 보기 및 게시</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/virtual-event/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;버추얼 이벤트</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/getting-started/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;시작하기</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/creating-virtual-event-experience.html">가상 이벤트 경험 만들기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/getting-started-agenda-module.html">의제 모듈 시작하기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/overview-virtual-event-template.html">가상 이벤트 템플릿 개요</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/using-site-editor-customize-virtual-event-experience.html">사이트 편집기 사용</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/videos/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;동영상 관리</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/videos/adding-videos-virtual-event-experience.html">비디오 추가</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/videos/using-simulated-live-videos.html">시뮬레이션된 라이브 비디오 사용</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;아젠다 및 스피커</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/creating-agenda-virtual-event-experience.html">이벤트 의제 파일 만들기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/creating-speakers-virtual-event-experience.html">이벤트 스피커 파일 만들기</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/managing-agenda-virtual-event-experience.html">이벤트 의제 관리</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/managing-event-speakers.html">이벤트 발표자 관리</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/customizing/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;커스터마이징</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-calls-action-portal-experience.html">영업 활용 방안 구성</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/configuring-details-portal-experience.html">세부 정보 구성</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/customizing-appearance-and-behavior-virtual-event-experience.html">모양 및 동작 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/customizing-content-virtual-event-experience-pages.html">페이지 내용 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-configuration-portal-experience.html">사이트 구성 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-features-portal-experience.html">사이트 기능 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/customizing-style-virtual-event-experience.html">스타일 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-video-and-playback-settings-portal-experience.html">비디오 및 재생 설정 사용자 정의</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/integrating-pigeonhole-virtual-event-experience.html">비둘기 구멍 통합</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/managing-event-sponsors.html">이벤트 스폰서 관리</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-multi-lingual-metadata.html">다국어 메타데이터 사용</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/other/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i><span>&nbsp;기타 기능</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/other/using-role-based-access-control.html">역할 기반 액세스 제어 사용</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/other/getting-analytics.html">가상 이벤트 뷰어 데이터 내보내기</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/landing/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;랜딩 페이지</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/landing/creating-landing-page-experience.html">랜딩 페이지 경험 만들기</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/other/exporting-gallery-lead-data.html">갤러리 잠재 고객 데이터 익스포트</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">미리 보기 및 게시</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/other/using-lead-form-portal-experience.html">가망 고객 화면 사용</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/customizing/using-site-editor-customize-portal-experience.html">사이트 편집기를 사용하여 환경 사용자 지정</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;일반 정보</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/gallery-system-requirements.html">갤러리 시스템 요구 사항</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/troubleshooting-brightcove-gallery-issues.html">브라이트코브 갤러리 문제 해결</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/brightcove-gallery-cookies.html">브라이트코브 갤러리 쿠키</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/settings/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;갤러리 설정</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-gallery-settings.html">갤러리 설정 구성</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-youtube-settings.html">유튜브 설정 구성</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-access-control-profiles.html">액세스 제어 프로파일 구성</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-custom-domains-and-ssl.html">사용자 지정 도메인 및 SSL 구성</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-auth0.html">Auth0으로 포털 환경 보안 설정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-okta.html">Okta로 포털 경험 확보</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-ssl.html">SSL을 사용하여 포털 환경 보안</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-single-sign-active-directory-federation-services.html">ADFS를 사용하여 단일 사인온 구성</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/develop/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;개발자</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experience-code-snippets.html">페이지 내 경험 코드 조각</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experiences-custom-css-reference.html">페이지 내 경험 사용자 지정 CSS 참조</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/embedding-brightcove-page-experiences-cms.html">CMS에 페이지 내 경험 포함</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/overview-page-experience-api.html">개요: 페이지 내 경험 API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/overview-page-experience-client-api.html">개요: 페이지 내 경험 클라이언트 API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experience-api-error-reference.html">페이지 내 환경 API 오류 참조</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experience-client-api-sample.html">페이지 내 환경 클라이언트 API 샘플</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/quick-start-page-experience-platform-rest-api.html">빠른 시작: 페이지 내 경험 플랫폼 (REST) API</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/reference.html">페이지 내 경험 플랫폼 API 참조</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/in-page-exerience-client-api/ClientApi.html">페이지 내 경험 클라이언트 API 참조</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/release-notes/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;릴리즈 노트</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/release-notes/gallery-release-notes.html">갤러리 릴리스 정보</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/release-notes/gallery-template-release-notes.html">갤러리 템플릿 릴리스 정보</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;서포트</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">지원 포털 비밀번호 재설정</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">영업팀에 문의</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">홈</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/get-started/">시작하다</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">단계별: 포털 환경 만들기 및 게시</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
+<article class="bcls-article">
+  <h1>단계별: 포털 환경 만들기 및 게시</h1>
+  <summary>이 주제의 목적은 브라이트코브 갤러리를 사용하여 매력적인 포털 경험을 만드는 방법을 보여주기 위한 것입니다.</summary>
+  <section class="bcls-section">
+    <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="3545271769001">
+      &nbsp;</div>
+    <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script>
+    <p>이 항목을 완료한 후 다음을 수행할 수 있습니다.</p>
+    <ul>
+      <li>Gallery 설정 구성</li>
+      <li>갤러리를 사용하여 새 포털 환경 만들기</li>
+      <li>포털 환경에 비디오 추가</li>
+      <li>포털 환경 사용자 지정</li>
+      <li>포털 환경 미리 보기 및 게시</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information">참고: 페이지 내 경험을 만드는 단계별 가이드는<a href="step-step-creating-and-publishing-page-experience.html">단계별 가이드를 참조하십시오. 페이지 내 환경 만들기 및 게시</a></aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="audience">고객</h2>
+    <p>모든 유형의 맞춤형 개발 없이 매력적인 포털 경험을 제작해야 하는 모든 Video Cloud 퍼블리셔입니다.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="prereq">전제 조건</h2>
+    <ul>
+      <li>갤러리 모듈에 액세스할 수 있는 비디오 클라우드 계정</li>
+      <li>비디오 클라우드의 실무 지식</li>
+      <li>필요한 경우 이 항목에 사용된 샘플 비디오를<a href="https://files.brightcove.com/GalleryQuickStartAssets.zip">다운로드할</a>수 있습니다.</li>
+      <li><a href="/get-started/training/training-demand-building-portal-experiences-using-gallery.html">갤러리 교육을 사용하여 건물 포털 경험을</a>보거나 참석하는 데 도움이 됨</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="setup">시작하기 전에</h2>
+    <p>제공된 샘플 비디오를 사용하려면 다음 단계를 수행하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>샘플 파일을<a href="https://files.brightcove.com/GalleryQuickStartAssets.zip">다운로드합니다</a> .</li>
+      <li>비디오를 비디오 클라우드 계정에 업로드합니다.</li>
+      <li>Chickadee 비디오에<strong translate="No">bird in flight</strong> '' 태그를 추가합니다.</li>
+      <li>다음과 같이 세 개의 재생 목록을 만들고 재생 목록에 비디오를 추가합니다.
+        <table width="38%" class="bcls-table">
+          <thead class="bcls-table__head">
+            <tr>
+              <th width="68%">비디오</th>
+              <th width="32%">재생목록</th>
+            </tr>
+          </thead>
+          <tbody class="bcls-table__body" translate="No">
+            <tr>
+              <td>Clown Fish<br />
+                Crab<br />
+                Dolphins<br />
+                Leafy Seadragon<br />
+                Lionfish<br />
+                Sea Turtle<br />
+                Seahorse</td>
+              <td>Sea Creatures</td>
+            </tr>
+            <tr>
+              <td>Chickadee<br />
+                Peacock<br />
+                Woodpecker</td>
+              <td>Birds</td>
+            </tr>
+            <tr>
+              <td>Elephant<br />
+                Tiger<br />
+                Zebra</td>
+              <td>Animals</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>일부 관련 링크 URL을 일부 동영상에 추가합니다. 이후 섹션에서는 비디오에 대한 관련 링크를 표시하도록 포털을 구성합니다.</li>
+      <li>사용<strong>플레이어</strong>모듈, 새 플레이어를 만듭니다. <strong>갤러리 플레이어</strong> .</li>
+      <li>제목과 설명을 표시하지 않도록 플레이어를 구성합니다. 플레이어를 게시합니다.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="create">포털 환경 만들기</h2>
+    <p>브라이트코브 갤러리를 사용하여 포털 경험을 만들려면 다음 작업을 완료해야 합니다.</p>
+    <ul>
+      <li><a href="#player">기본 플레이어로 갤러리 구성</a></li>
+      <li><a href="#create_domain">사용자 지정 도메인 이름 만들기</a></li>
+      <li><a href="#create">새 포털 환경 만들기</a></li>
+      <li><a href="#details">사이트 세부 정보 편집</a></li>
+      <li><a href="#objects">페이지 템플릿에 개체 추가</a></li>
+      <li><a href="#preview">경험 미리 보기</a></li>
+      <li><a href="#addvideos">컬렉션 만들기 및 컬렉션에 비디오 추가</a></li>
+      <li><a href="#style">대지 스타일 변경</a></li>
+      <li><a href="#search">사이트 검색 활성화</a></li>
+      <li><a href="#social">소셜 설정 사용자 지정</a></li>
+      <li><a href="#video_playback">비디오 및 재생 설정 사용자 정의</a></li>
+      <li><a href="#assign_domain">사용자 지정 도메인 할당</a></li>
+      <li><a href="#publish">경험 게시</a></li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="player">기본 플레이어로 갤러리 구성</h2>
+    <p>브라이트코브 갤러리는 갤러리 사이트에서 사용할 기본 비디오 플레이어로 구성할 수 있습니다. 기본 플레이어가 지정되지 않은 경우, <strong>브라이트코브 기본 플레이어가</strong>기본값이 됩니다. 기본 플레이어로 갤러리를 구성하려면 다음 단계를 따르십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li><a href="https://studio.brightcove.com">Video Cloud Studio</a> 에 로그인합니다.</li>
+      <li>현재 비디오 클라우드 계정 이름이 페이지 우측 상단 모서리에 나타납니다. 계정이 여러 개인 경우 계정 선택기 드롭다운을 클릭하고 환경을 만들려는 계정을 선택합니다. 이 계정도 사용할 동영상이 있는 계정이어야 합니다.</li>
+      <li>기본 탐색에서 <strong>갤러리 를</strong> 클릭합니다.</li>
+      <li>설정 아이콘(<img class="bcls-image--no-border" alt="" src="/assets/images/get-started/icon-settings.png"/> ) 페이지 상단에 있습니다.</li>
+      <li>갤러리 사이트에서 사용할 플레이어를 선택합니다. 단계를 수행하는 경우 앞에서 만든<strong>갤러리 플레이어를</strong>선택합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-select-player.png"/></figure>
+        <aside class="bcls-aside bcls-aside--information">참고: 가장 좋은 방법은 갤러리 경험을 위한 전용 플레이어를 만들고 스타일을 지정하는 것이 좋습니다.</aside>
+      </li>
+      <li><span class="button-blue">저장</span>을 클릭합니다.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="create_domain">사용자 지정 도메인 이름 만들기</h2>
+    <p>새 포털 경험을 생성하면 갤러리에서 임의의 URL (예: <code translate="No">site-12345.bcvp0rtal.com</code> ) 을 할당합니다. 포털 경험에는 브라이트코브가 제공하는 도메인 (이 주제에서 수행할 작업) 을 할당하거나 고유한 사용자 지정 도메인을 사용할 수 있습니다. 브라이트코브가 제공하는 새로운 도메인을 생성하려면 다음 단계를 따르십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li><strong>설정</strong>페이지의 왼쪽 탐색에서<strong>사용자 지정 도메인 및 SSL</strong>을 클릭합니다.</li>
+      <li><span class="button-blue">사용자 지정 도메인 만들기를</span>클릭합니다.</li>
+      <li><strong>브라이트코브갤러리.com</strong>또는<strong>갤러리.비디오</strong>도메인을 선택합니다.</li>
+      <li>사용자 정의 도메인을 입력합니다. 자신의 이름 또는 회사 이름을 사용합니다. 도메인을 사용할 수 없는 경우 메시지가 표시됩니다. 다른 이름을 입력합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-custom-domain.png"/></figure>
+      </li>
+      <li>유효한 도메인을 입력했으면<span class="button-blue">저장을</span>클릭합니다.</li>
+      <li>페이지 상단의 <strong>모든 경험으로 돌아가기</strong> 링크를 클릭합니다.</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information">참고: 사용자 지정 도메인은 이후 섹션에서 포털에 할당됩니다.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="create_portal">새 포털 환경 만들기</h2>
+    <p>새 갤러리 포털 환경을 만들려면 다음과 같이 하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li><span class="button-blue">새 경험을</span>클릭합니다.</li>
+      <li>페이지 상단에 있는<strong>포털</strong>탭을 클릭합니다. 포털 템플릿 목록이 표시됩니다. 선택<strong>윤곽</strong>템플릿을 찾아 [ <span class="button-blue-text-bordered">선택</span> ] 을 클릭합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-marquee.png"/></figure>
+        <aside class="bcls-aside bcls-aside--information">참고: 템플릿을 선택하면 변경할 수 없습니다. 갤러리 템플릿에 대한 자세한 내용은<a href="/experiences/portal/templates/overview-gallery-portal-templates.html">갤러리 포털 템플릿 개요</a>항목을 참조하십시오.</aside>
+      </li>
+      <li><strong>체험 타이틀을</strong>위해<strong>동물의 세계로</strong>들어갑니다. <strong>사전 채우기 경험을 원하십니까?</strong>설정에서<strong>아니오 감사를</strong>선택합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-new-project.png"/></figure>
+      </li>
+      <li><span class="button-blue">경험 만들기를</span>클릭합니다.</li>
+    </ol>
+    <p>갤러리 사이트 편집기가 열립니다. 갤러리 사이트 편집기는 환경을 사용자 지정하는 데 사용되며 페이지 레이아웃을 관리하고, 비디오를 추가하고, 스타일을 선택하고, 포털에 대한 기타 설정을 구성하는 기능을 제공합니다. 모든 사용자화 설정은 왼쪽 탐색 메뉴를 사용하여 액세스합니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-site-editor-nav.png"/></figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="details">사이트 세부 정보 편집</h2>
+    <p>경험 제목, 설명 및 언어 설정은 갤러리 사이트 편집기를 사용하여 편집할 수 있습니다.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>왼쪽 탐색에서 <strong>개요를</strong> 클릭합니다.</li>
+      <li><strong>체험 설명을</strong>보려면<strong>동물 세계 비디오 포털을</strong>추가합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-edit-details.png"/></figure>
+      </li>
+      <li><span class="button-blue">저장</span>을 클릭합니다.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="objects">페이지 템플릿에 개체 추가</h2>
+    <p>각 포털 템플릿은 사용자 정의할 수 있는 일련의 페이지 템플릿을 제공합니다. 제공되는 페이지 템플릿은 경험을 처음 만들 때 선택한 템플릿에 따라 다릅니다. 선택 윤곽 템플릿은<strong>홈</strong> , <strong>재생</strong>및<strong>범주</strong>페이지 템플릿을 제공합니다. 이 페이지는 <strong>페이지</strong> 메뉴의 일부로 왼쪽 여백에서 볼 수 있습니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-page-templates.png"/></figure>
+    <p>페이지 템플릿에 개체를 추가하는 방법에 대한 자세한 내용은<a href="/experiences/portal/customizing/customizing-content-portal-experience-pages.html">포털 경험 페이지의 컨텐츠 사용자 정의를</a>참조하십시오.</p>
+    <p>페이지 템플릿에 개체를 추가하려면 다음과 같이 하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>왼쪽 탐색에서 <strong>페이지를</strong> 클릭합니다.</li>
+      <li>왼쪽 여백에서<strong>홈</strong>페이지를 클릭합니다. 더하기 아이콘 ( <img alt="" src="/assets/images/get-started/node13532-plus-icon.png"/> ) 은 페이지에서 객체를 추가할 수 있는 영역을 나타냅니다. 페이지의 정적 텍스트 객체는 클릭하여 편집할 수 있습니다.</li>
+      <li>페이지<strong>상단에서+이미지 또는 텍스트 추가를</strong>클릭합니다.</li>
+      <li><strong>이미지</strong>탭을 클릭합니다.</li>
+      <li><strong>찾아보기를</strong>클릭한 다음<strong>동물 세계 Logo.png</strong>를 찾아 선택합니다. 이 파일은 샘플 에셋의 일부로 제공됩니다. <span class="button-blue">저장</span>을 클릭합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-select-image.png"/></figure>
+      </li>
+      <li>이미지가 페이지 머리글에 나타나는지 확인합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-header-image.png"/></figure>
+      </li>
+      <li>페이지 하단으로 스크롤합니다. <strong>[ 내 브랜드]</strong>를 클릭합니다. 제목에<strong>동물 세계를</strong>입력한 다음<strong>저장을</strong>클릭합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-animal-world-title.png"/></figure>
+      </li>
+      <li>왼쪽 여백에 있는<strong>재생</strong>및<strong>범주</strong>페이지를 클릭합니다. 머리글 이미지와 제목 텍스트도 해당 페이지에 나타납니다. <strong>홈</strong>페이지로 돌아갑니다.</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information">참고: 파일 이름에 "_728_90"이 있으면 대부분의 광고 차단기에 의해 이미지가 차단됩니다.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="preview">경험 미리 보기</h2>
+    <p>환경을 미리 보면 포털이 모바일, 태블릿 및 데스크톱 장치에서 어떻게 표시되는지 확인할 수 있습니다. 포털을 사용자 지정하는 단계를 진행하면서 포털을 미리 볼 수 있습니다. 포털을 새 브라우저 탭에서 미리 보거나 공유 가능한 링크를 생성하여 다른 사용자가 포털을 미리 볼 수 있습니다. 포털 환경 미리 보기 및 게시에 대한 자세한 내용은 포털 환경<a href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">미리 보기 및 게시를</a>참조하십시오.</p>
+    <p>포털을 미리 보려면 다음 단계를 수행합니다.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Gallery Site Editor를 사용하여 사이트를 편집하는 동안 <span class="button-blue-text-bordered">미리보기 ˇ를</span> 클릭한 다음 <strong>반응형 미리보기 를</strong> 클릭합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-preview.png"/></figure>
+      </li>
+      <li>미리보기가 새 브라우저 탭에서 열립니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-desktop-preview.png"/></figure>
+      </li>
+      <li>사이트 미리 보기 탭을 닫습니다.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="addvideos">컬렉션 만들기 및 컬렉션에 비디오 추가</h2>
+    <p>갤러리 사이트 편집기를 사용하여 포털에 표시할 비디오를 선택할 수 있습니다. 포털 경험을 만들 때 비디오는 컬렉션으로 구성됩니다. 컬렉션은 Video Cloud 비디오 메타데이터를 기반으로 생성되며 다음을 포함할 수 있습니다.</p>
+    <ul>
+      <li>Video Cloud 재생 목록</li>
+      <li>키워드</li>
+      <li>사용자 정의 메타데이터</li>
+      <li>태그</li>
+    </ul>
+    <p>YouTube 계정의 동영상도 컬렉션에 추가할 수 있습니다. 모음 만들기 및 사이트에 비디오 추가에 대한 자세한 내용은<a href="/experiences/portal/videos/adding-videos-portal-experience.html">포털 경험에 비디오 추가를</a>참조하십시오.</p>
+    <p>포털 경험에 비디오를 추가하려면 다음 단계를 따르십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>왼쪽 탐색에서 [ <strong>비디오</strong> ] 를 클릭합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-manage-videos.png"/></figure>
+      </li>
+      <li>첫 번째 컬렉션 이름을<strong>새</strong>다음 Enter 키를 누릅니다.</li>
+      <li>컬렉션 이름을 클릭하여 컬렉션 편집기를 엽니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-click-collection-name.png"/></figure>
+      </li>
+      <li><strong>컬렉션 소스</strong> 로 <strong>Brightcove를</strong> 선택하고 기준으로 <strong>재생 목록을</strong> 선택합니다.</li>
+      <li><strong>새</strong>재생 목록을 클릭합니다. 새 재생목록의 모든 동영상이 동영상 목록에 표시됩니다. <span class="button-blue">저장</span>을 클릭합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-birds-playlist.png"/></figure>
+        <aside class="bcls-aside bcls-aside--information">참고: 재생 목록 비디오 할당을 사용하는 경우 비디오 순서는 미디어 모듈에서 설정한 재생 목록 설정에 따라 결정됩니다.</aside>
+      </li>
+      <li>동물 재생 목록을 기준으로 사용하여<strong>동물이라는</strong>다른 컬렉션을 만듭니다.</li>
+      <li><strong>바다 생물</strong>재생 목록을 기준으로 사용하여 바다 생물라는 이름의 다른 컬렉션을 만듭니다.</li>
+      <li><strong>비행 중 조류라는</strong>이름의 다른 컬렉션을 만듭니다. 기준으로 [ <strong>사용자 정의</strong> ] 를 선택합니다.</li>
+      <li>동영상을 포함하려면<strong>태그를</strong>선택하고 ' <strong translate="No">bird in
+          flight</strong> ' 태그를 추가합니다. Enter 키를 누릅니다.</li>
+      <li><strong>가장 최근</strong>동영상을 기준으로 정렬합니다.</li>
+      <li>Chickadee 비디오가 비디오 컬렉션 목록에 나타나는지 확인합니다. <span class="button-blue">저장</span>을 클릭합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-custom-bif.png"/></figure>
+      </li>
+      <li>4개의 모음이 생성되었는지 확인합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-4-collections.png"/></figure>
+        <aside class="bcls-aside bcls-aside--information">참고: 컬렉션을 클릭하고 새 위치로 끌어 컬렉션의 순서를 변경할 수 있습니다.</aside>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="style">부지 스타일 변경</h2>
+    <p>스타일 설정은 환경에 사용되는 사이트 색상 및 글꼴을 사용자 지정하는 데 사용할 수 있습니다. 사이트 스타일 변경에 대한 자세한 내용은<a href="/experiences/portal/customizing/customizing-style-portal-experience.html">포털 경험의 스타일 사용자 지정을</a>참조하십시오.</p>
+    <p>대지 스타일을 변경하려면 다음과 같이 하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>왼쪽 탐색에서 <strong>스타일을</strong> 클릭합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-style-menu.png"/></figure>
+      </li>
+      <li><strong>테마는</strong>템플릿에 적용할 수 있는 색상 및 글꼴 집합입니다. <strong>테마를</strong>선택합니다. 이 포털은<strong>트리톤</strong>테마를 사용합니다.</li>
+      <li>사용할<strong>기본</strong>및<strong>보조</strong>글꼴을 선택합니다. 이 포털은<strong>Open Sans</strong>글꼴을 사용합니다.</li>
+      <li>스타일 메뉴 상단에 있는<strong>경험으로 &lt; 돌아가기</strong>링크를 클릭합니다.</li>
+    </ol>
+    <p><strong>모양 및 동작</strong> 설정의 일부로 추가 스타일 관련 설정도 사용할 수 있습니다.</p>
+    <ol class="bcls-tasklist" start="5">
+      <li>왼쪽 탐색 메뉴에서<strong>모양 및 동작 &gt; 템플릿 설정을</strong>클릭합니다.</li>
+      <li><strong>추천 비디오를 선택한 범주의 첫 번째 비디오로 변경을</strong>선택합니다.
+        <aside class="bcls-aside bcls-aside--information">참고: 사용 가능한<strong>템플릿 설정은</strong>환경을 만들 때 선택한 템플릿을 기반으로 합니다. 모든 템플릿에 템플릿 설정이 있는 것은 아닙니다.</aside>
+      </li>
+      <li><span class="button-blue">저장</span>을 클릭합니다.</li>
+    </ol>
+    <p>모양 및 동작 설정에 대한 자세한 내용은<a href="/experiences/portal/customizing/customizing-appearance-and-behavior-portal-experience.html">포털 환경의 모양 및 동작 사용자 정의를</a>참조하십시오.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="search">사이트 검색 활성화</h2>
+    <p>사이트 검색 설정을 사용하여 사이트 검색 기능을 활성화하고 사용자 지정할 수 있습니다. 사이트 검색을 활성화하면 사이트 페이지에 검색 기능이 추가되어 시청자가 콘텐츠를 검색할 수 있습니다. 사이트 검색 사용자 지정에 대한 자세한 내용은<a href="/experiences/portal/customizing/customizing-site-features-portal-experience.html">포털 경험의 사이트 기능 사용자 지정을</a>참조하십시오.</p>
+    <p>사이트 검색을 사용 하려면 다음과이 같이 하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>딸깍 하는 소리<strong>사이트 기능 &gt; 사이트 검색</strong>왼쪽 탐색에서.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-site-search.png"/></figure>
+      </li>
+      <li><strong>사이트 검색 사용</strong>옵션을 선택합니다.</li>
+      <li><span class="button-blue">저장을</span>클릭하여 설정을 저장합니다.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="social">소셜 설정 사용자 지정</h2>
+    <p>소셜 설정을 사용하면 시청자가 콘텐츠를 인기 있는 소셜 미디어 사이트에 쉽게 공유할 수 있습니다. 시청자가 소셜 미디어 사이트에 빠르게 액세스할 수 있는 방법도 제공할 수 있습니다. 소셜 설정 사용자 지정에 대한 자세한 내용은<a href="/experiences/portal/customizing/customizing-social-settings-portal-experience.html">포털 경험에 대한 소셜 설정 사용자 정의를</a>참조하십시오.</p>
+    <p>소셜 설정을 구성하려면 다음과 같이 하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>딸깍 하는 소리<strong>사이트 기능 &gt; 소셜</strong>왼쪽 탐색에서.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-social.png"/></figure>
+      </li>
+      <li>모든<strong>공유 옵션을</strong>선택합니다. 그러면 플레이어 옆에 소셜 공유 아이콘이 추가됩니다.
+      </li>
+      <li><strong>조명 시 어둡게 아이콘</strong>옵션을 선택합니다.</li>
+      <li><span class="button-blue">저장</span>을 클릭합니다.</li>
+      <li>페이지 상단의<strong>연결 상태 유지</strong>탭을 클릭합니다. 갤러리 사이트는 소셜 미디어 계정 정보를 제공하여 페이지 바닥글에 아이콘을 표시하여 시청자가 소셜 미디어 사이트에 직접 액세스할 수 있도록 합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-social-links-footer.png"/></figure>
+      </li>
+      <li>소셜 미디어 정보를 입력하거나<strong> Brightcove</strong>에 대한<strong>페이스 북 이름</strong> , <strong>트위터 핸들</strong>과<strong> LinkedIn 사용자 이름</strong> .
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-social-settings.png"/></figure>
+      </li>
+      <li><strong>어두운 곳에서 조명 아이콘</strong>옵션을 선택합니다.</li>
+      <li><span class="button-blue">저장을</span>클릭하여 설정을 저장합니다.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="video_playback">비디오 및 재생 설정 사용자 정의</h2>
+    <p>비디오 및 재생 설정을 사용하여 사용자 지정 플레이어를 선택하고, 리드 양식을 추가하고, 기타 비디오 관련 설정을 사용자 지정할 수 있습니다. 소셜 설정 사용자 지정에 대한 자세한 내용은<a href="/experiences/portal/customizing/customizing-video-and-playback-settings-portal-experience.html">포털 경험의 비디오 및 재생 설정 사용자 지정을</a>참조하십시오.</p>
+    <p>비디오 및 재생 설정을 사용자 지정하려면 다음과 같이 하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>갤러리 사이트 편집기에서<strong>비디오 및 재생 &gt; 플레이어 및 리드 양식을 클릭합니다</strong> .</li>
+      <li>모든 <strong>플레이어 동작</strong> 설정이 선택되어 있는지 확인하십시오. 필요한 경우<span class="button-blue">저장을</span>클릭합니다.</li>
+      <li>딸깍 하는 소리<strong>비디오 및 재생 &gt; 비디오</strong>왼쪽 탐색에서.</li>
+      <li><strong>각 비디오에 대한 관련 링크 표시</strong>옵션을 선택합니다.</li>
+      <li><span class="button-blue">저장</span>을 클릭합니다.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="assign_domain">사용자 지정 도메인 할당</h2>
+    <p>포털 환경이 생성되면 임의의 정적 URL이 할당됩니다. 대부분의 경우 보다 친숙한 URL로 사이트에 액세스해야 합니다. 포털 경험에 사용자 지정 도메인을 할당하는 방법에 대한 자세한 내용은 포털 환경에<a href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당을</a>참조하십시오.</p>
+    <p>포털에 할당된 URL을 보고 사용자 지정 URL을 할당하려면 다음 단계를 수행합니다.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>갤러리 사이트 편집기에서<strong>사이트 구성 &gt; URL을 클릭합니다</strong> . 사이트에 할당 된 URL이 표시됩니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-url.png"/></figure>
+      </li>
+      <li><span class="button-blue-text-bordered">사용자 지정 도메인 추가를</span>클릭합니다.
+        <aside class="bcls-aside bcls-aside--information">참고: <strong>사용자 지정 도메인 추가 단추가</strong>없으면 사용자 지정 도메인이<a href="#create_domain">만들어지지 않은</a>것입니다.</aside>
+      </li>
+      <li>이전에 만든 도메인을 선택합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-select-domain.png"/></figure>
+      </li>
+      <li><span class="button-blue">저장</span>을 클릭합니다.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="publish">경험 게시</h2>
+    <p>포털 환경을 게시하면 공용 URL에서 환경을 사용할 수 있습니다. 포털 환경 미리 보기 및 게시에 대한 자세한 내용은 포털 환경<a href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">미리 보기 및 게시를</a>참조하십시오.</p>
+    <p>경험을 게시하려면 다음과 같이 하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>갤러리 사이트 편집기에서<span class="button-blue">게시를</span>클릭합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-publish-confirm.png"/></figure>
+        <aside class="bcls-aside bcls-aside--information">참고: 사이트에 할당한 사용자 지정 도메인이 대화상자에 나열되어야 합니다.</aside>
+      </li>
+      <li>사이트 게시 대화상자에서<span class="button-blue">지금 게시를</span>클릭하여 사이트 게시를 확인합니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/get-started/node13532-published-site.png"/></figure>
+      </li>
+    </ol>
+  </section>
+</article>
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">페이지 내용</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">브라이트코브 지원</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">시스템 상태</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">고객 지원 문의</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">모든 문서 검색</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">교육</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">온라인 코스</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">강좌 등록</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">브라이트코브 아카데미</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">브라이트코브닷컴</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">밝은 자리 커뮤니티 포럼</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">제품 릴리스 정보</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">설명서 업데이트</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. 판권 소유.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">프라이버시</a><a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Twitter" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documentation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
+    maxSuggestions: 5, // Maximum number of suggestions to show
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+  
+
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+  </body>
+</html> 
